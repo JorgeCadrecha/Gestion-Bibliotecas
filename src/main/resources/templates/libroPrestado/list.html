@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+    <head>
+        <title>[[#{libroPrestado.list.headline}]]</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <div class="d-flex flex-wrap mb-4">
+                <h1 class="flex-grow-1">[[#{libroPrestado.list.headline}]]</h1>
+                <div>
+                    <a th:href="@{/libroPrestados/add}" class="btn btn-primary ms-2">[[#{libroPrestado.list.createNew}]]</a>
+                </div>
+            </div>
+            <div th:if="${libroPrestadoes.empty}">[[#{libroPrestado.list.empty}]]</div>
+            <div th:if="${!libroPrestadoes.empty}" class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">[[#{libroPrestado.id.label}]]</th>
+                            <th scope="col">[[#{libroPrestado.idLibro.label}]]</th>
+                            <th scope="col">[[#{libroPrestado.idLector.label}]]</th>
+                            <th scope="col">[[#{libroPrestado.idPrestamo.label}]]</th>
+                            <th scope="col">[[#{libroPrestado.libro.label}]]</th>
+                            <th scope="col">[[#{libroPrestado.lector.label}]]</th>
+                            <th scope="col">[[#{libroPrestado.libros.label}]]</th>
+                            <th scope="col">[[#{libroPrestado.lectores.label}]]</th>
+                            <th><!-- --></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="libroPrestado : ${libroPrestadoes}">
+                            <td>[[${libroPrestado.id}]]</td>
+                            <td>[[${libroPrestado.idLibro}]]</td>
+                            <td>[[${libroPrestado.idLector}]]</td>
+                            <td>[[${libroPrestado.idPrestamo}]]</td>
+                            <td>[[${libroPrestado.libro}]]</td>
+                            <td>[[${libroPrestado.lector}]]</td>
+                            <td>[[${libroPrestado.libros}]]</td>
+                            <td>[[${libroPrestado.lectores}]]</td>
+                            <td>
+                                <div class="float-end text-nowrap">
+                                    <a th:href="@{/libroPrestados/edit/{id}(id=${libroPrestado.id})}" class="btn btn-sm btn-secondary">[[#{libroPrestado.list.edit}]]</a>
+                                    <form th:action="@{/libroPrestados/delete/{id}(id=${libroPrestado.id})}"
+                                            th:hx-confirm="#{delete.confirm}" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-sm btn-secondary">[[#{libroPrestado.list.delete}]]</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

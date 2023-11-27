@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+    <head>
+        <title>[[#{prestamo.edit.headline}]]</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <div class="d-flex flex-wrap mb-4">
+                <h1 class="flex-grow-1">[[#{prestamo.edit.headline}]]</h1>
+                <div>
+                    <a th:href="@{/prestamos}" class="btn btn-secondary">[[#{prestamo.edit.back}]]</a>
+                </div>
+            </div>
+            <div th:replace="~{fragments/forms::globalErrors('prestamo')}" />
+            <form th:action="${requestUri}" method="post">
+                <div th:replace="~{fragments/forms::inputRow(object='prestamo', field='id', disabled=true, type='number')}" />
+                <div th:replace="~{fragments/forms::inputRow(object='prestamo', field='fechaDePrestamo')}" />
+                <div th:replace="~{fragments/forms::inputRow(object='prestamo', field='fechaDeDevolucion')}" />
+                <div th:replace="~{fragments/forms::inputRow(object='prestamo', field='estado')}" />
+                <div th:replace="~{fragments/forms::inputRow(object='prestamo', field='libroPrestado', type='select')}" />
+                <input type="submit" th:value="#{prestamo.edit.headline}" class="btn btn-primary mt-4" />
+            </form>
+        </div>
+    </body>
+</html>

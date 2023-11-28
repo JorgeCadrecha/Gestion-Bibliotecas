@@ -1,5 +1,13 @@
 # GestionBibliotecas
 
+## Mi repositorio es: 
+https://github.com/JorgeCadrecha/Gestion-Bibliotecas.git
+
+
+### Otros repositorios donde empece a hacer pruebas
+https://github.com/JorgeCadrecha/Gestion_de_bibliotecas.git
+https://github.com/JorgeCadrecha/Gestion_Bibliotecas.git
+
 This app was created with Bootify.io - tips on working with the code [can be found here](https://bootify.io/next-steps/).
 Feel free to contact us for further questions.
 
